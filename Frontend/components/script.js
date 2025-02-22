@@ -7,7 +7,14 @@ export const showUsers = (user) => {
 
    let userDiv = user.map(ele => (`
             <tr>
-                <td><img width="50px" src=${ele.pic} alt="${ele.name}" /></td>
+                <td class="position-relative">
+                ${
+                    ele.auth == "admin"
+                        ?
+                    `<small class="rounded-circle fs-8 badge text-bg-success position-absolute start-50 top-0 text-success ">.</small>`
+                    : ""
+                }
+                <img width="50px" src=${ele.pic} alt="${ele.name}" /></td>
                 <td>${ele.name}</td>
                 <td>${ele.email}</td>
                 <td>${ele.password}</td>

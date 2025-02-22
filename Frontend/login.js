@@ -12,7 +12,7 @@ const session_url = `http://localhost:8000/session`
 const showSingleUser = async (data) => {
     const res = await fetch(session_url, {
         method:"PUT",
-        body: JSON.stringify(data),
+        body: JSON.stringify({session_id:data}),
         headers:{
             "Content-Type":"application/json"
         }
@@ -37,7 +37,7 @@ const data = await getUsers(url)
             alert("invalid creadintal...!")
         }
         else{
-            showSingleUser(newData)
+            showSingleUser(newData.id)
         }
 }
 

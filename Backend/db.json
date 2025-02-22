@@ -1,13 +1,5 @@
 {
-  "session": {
-    "id": 51,
-    "pic": "img/team3.png",
-    "name": "Feroj Pathan",
-    "email": "feroj@gmail.com",
-    "password": "feroj123",
-    "auth": "user",
-    "todos": []
-  },
+  "session": {},
   "Users": [
     {
       "id": 31,
@@ -68,7 +60,18 @@
       "email": "saif@gmail.com",
       "password": "saif123",
       "auth": "user",
-      "todos": []
+      "todos": [
+        {
+          "todo_id": 3,
+          "todo": "code",
+          "status": false
+        },
+        {
+          "todo_id": 1857,
+          "todo": "repeat",
+          "status": "false"
+        }
+      ]
     },
     {
       "id": 66,
@@ -78,6 +81,31 @@
       "password": "shkti@87",
       "auth": "user",
       "todos": []
+    },
+    {
+      "id": 27,
+      "pic": "https://t4.ftcdn.net/jpg/04/04/84/35/360_F_404843510_CVgjxWxhW2ipkOM8Vuk5IQEnc1Q54by6.jpg",
+      "name": "jenny jones",
+      "email": "jenny@gmail.com",
+      "password": "jenny123",
+      "auth": "user",
+      "todos": [
+        {
+          "todo_id": 5327,
+          "todo": "gym",
+          "status": "false"
+        },
+        {
+          "todo_id": 400,
+          "todo": "cardio",
+          "status": "false"
+        },
+        {
+          "todo_id": 7686,
+          "todo": "cooking",
+          "status": "false"
+        }
+      ]
     }
   ]
 }

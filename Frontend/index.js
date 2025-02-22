@@ -15,7 +15,8 @@ const {addEvent} = addDataUi();
 addEvent.onclick = await addUsers;
 
 
-const c_session = await getUsers(session_url);
+const session = await getUsers(session_url);
+const c_session = await getUsers(url+session.session_id);
 const data = await getUsers(url);
 
 if(c_session.auth == "admin")

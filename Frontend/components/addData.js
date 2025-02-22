@@ -5,7 +5,10 @@ const addData = document.getElementById("addData");
 const url = `http://localhost:8000/Users/`;
 const session_url = `http://localhost:8000/session`
 
-const c_data = await getUsers(session_url);
+
+let session = await getUsers(session_url);
+let c_data = await getUsers(url+session.session_id);
+
 
 export const addDataUi = () => {
     
@@ -58,8 +61,29 @@ export const addDataUi = () => {
 
 
  export const addUsers = async () => {
+
+
+if(c_data.auth=="user")
+{
+    let task = {
+        todo_id : Math.round((Math.random()*10000)+1),
+        todo : document.getElementById("task")?.value,
+        status : "false",
+    }
+    
+    let data_to_post = c_data.todos;
+    data_to_post.push(task)
+    console.log(data_to_post)
+
+    const res = await fetch(url+c_data.id, {
+        method:"PATCH",
+        body: JSON.stringify({todos:data_to_post}),
+        headers:{"Content-Type" : "application/json"}
+    })
+}
+else{
     let user = {
-        id : Math.round((Math.random()*100)+1),
+        id : Math.round((Math.random()*10000)+1),
         pic : document.getElementById("pic")?.value,
         name : document.getElementById("name")?.value,
         email : document.getElementById("email")?.value,
@@ -68,21 +92,12 @@ export const addDataUi = () => {
         todos : []
     }
 
-    let task = {
-        todo_id : Math.round((Math.random()*10)+1),
-        todo : document.getElementById("task")?.value,
-        status : "false",
-    }
-
-let data_to_post = c_data.auth=="user" ? task : user;
-
-let main_url = c_data.auth=="user" ? `${url+c_data.id}` : url;
-
-console.log(data_to_post, main_url)
-
-    // const res = await fetch(main_url, {
-    //     method:"POST",
-    //     body: JSON.stringify(data_to_post),
-    //     headers:{"Content-Type" : "application/json"}
-    // })
+    const res = await fetch(url, {
+        method:"POST",
+        body: JSON.stringify(user),
+        headers:{"Content-Type" : "application/json"}
+    })
+ 
+}
+  
 }
